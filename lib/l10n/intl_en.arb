@@ -1,0 +1,13 @@
+{
+  "welcomeTo": "Welcome to",
+  "hello": "Hello",
+  "authtentication": "Authtentication",
+  "email": "Email",
+  "send": "Send",
+  "password": "password",
+  "ok": "Ok",
+  "unexpectedErrorMessage": "An unexpected error occurred.",
+  "invaliEmailMessage": "Please enter a valid email.",
+  "requiredField": "Required field",
+  "planList": "Plan List"
+}
