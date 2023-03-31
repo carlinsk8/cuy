@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../../../../../core/api/public_http_client.dart';
 import '../../../../../core/models/response_model.dart';
+import '../../../../../core/util/enviroment.dart';
 import '../local/user_local_data_source.dart';
 
 abstract class AuthDataSource {
@@ -17,7 +18,7 @@ class AuthDataSourceImpl extends AuthDataSource {
   final PublicHttpClient publicHttpClient;
   final UserLocalDataSource userLocalDataSource;
 
-  String get baseApiUrl => 'https://apidev.cuy.pe/api/v1';
+  String get baseApiUrl => Env.baseUrl();
   
   @override
   Future<bool> login(String email, String password) async {
