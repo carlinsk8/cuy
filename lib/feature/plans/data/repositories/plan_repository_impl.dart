@@ -15,11 +15,9 @@ class PlansRepositoryImpl implements PlansRepository {
 
   @override
   Future<Either<Failure, List<Plan>>> getPlanList(String? sort) async {
-    try {
+    
       final list = await plansDataSource.getPlanList(sort);
       return Right(list);
-    } catch (e, _) {
-      return const Left(UnauthorisedFailure());
-    }
+    
   }
 }

@@ -4,13 +4,13 @@ class ResponseModel<T> extends Equatable {
   final String status;
   final String code;
   final String message;
-  final String oauthToken;
+  final String? oauthToken;
   final T? list;
 
   const ResponseModel({
     required this.status,
     required this.message,
-    required this.oauthToken,
+    this.oauthToken,
     this.list,
     required this.code,
   });
@@ -29,7 +29,6 @@ class ResponseModel<T> extends Equatable {
   List<Object> get props => [
         status,
         message,
-        oauthToken,
         code,
       ];
 }

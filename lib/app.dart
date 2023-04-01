@@ -1,4 +1,3 @@
-import 'package:cuy_test/feature/auth/presentation/pages/auth_page.dart';
 import 'package:cuy_test/feature/plans/presentation/pages/plnas_page.dart';
 import 'package:cuy_test/shared/app_router.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'di/injection_container.dart';
 import 'feature/auth/presentation/providers/auth_provider.dart';
+import 'feature/plans/presentation/providers/plans_provider.dart';
 import 'generated/l10n.dart';
 
 class App extends StatelessWidget {
@@ -17,6 +17,7 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ListenableProvider<AuthProvider>(create: (_) => sl<AuthProvider>()),
+        ListenableProvider<PlansProvider>(create: (_) => sl<PlansProvider>()),
       ],
       child: MaterialApp(
         localizationsDelegates: const [

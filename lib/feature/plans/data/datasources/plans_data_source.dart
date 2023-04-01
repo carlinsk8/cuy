@@ -24,7 +24,7 @@ class PlansDataSourceImpl extends PlansDataSource {
     queryParams['sort'] = sort ?? 'ASC';
 
     final authority = _baseApiUrl.replaceAll('https://', '');
-    final uri = Uri.https(authority, '/service-package', queryParams);
+    final uri = Uri.https(authority, '/api/v1/service-package', queryParams.map((key, value) => MapEntry(key, value.toString())));
 
     final response = await authHttpClient.getUri(uri);
 

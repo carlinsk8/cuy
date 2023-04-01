@@ -32,7 +32,7 @@ class AuthDataSourceImpl extends AuthDataSource {
 
     final body = ResponseModel.fromJson(response.data);
 
-    userLocalDataSource.setToken(body.oauthToken);
+    userLocalDataSource.setToken(body.oauthToken ?? '');
 
     return body.status=='success';
   }

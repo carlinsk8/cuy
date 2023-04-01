@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:cuy_test/feature/plans/domain/entities/plan.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../shared/view_state.dart';
@@ -10,15 +13,23 @@ class PlansProvider extends ChangeNotifier {
 
   ViewState state = Idle();
 
+  List<Plan> _list = [];
+  final list = StreamController<List<Plan>>.broadcast();
+  Stream<List<Plan>> get stream => list.stream;
 
-  Future<void> login(String email, String password) async {
+  Future<void> getList(String sort) async {
     state = Loading();
     notifyListeners();
-    final result = await getPlanListUseCase(email);
+    final result = await getPlanListUseCase(sort);
 
     result.fold(
       (failure) => state = Error(failure: failure),
-      (ok) => state = Loaded(value: ok),
+      (listings) {
+        _list = [];
+        _list.addAll(listings);
+        list.sink.add(_list);
+        state = Loaded();
+      },
     );
     notifyListeners();
   }
