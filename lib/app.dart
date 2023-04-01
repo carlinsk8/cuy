@@ -1,12 +1,10 @@
+import 'package:cuy_test/providers.dart';
 import 'package:cuy_test/shared/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'di/injection_container.dart';
-import 'feature/auth/presentation/pages/auth_page.dart';
-import 'feature/auth/presentation/providers/auth_provider.dart';
-import 'feature/plans/presentation/providers/plans_provider.dart';
+import 'feature/splash/presentation/pages/splash_page.dart';
 import 'generated/l10n.dart';
 
 class App extends StatelessWidget {
@@ -15,10 +13,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ListenableProvider<AuthProvider>(create: (_) => sl<AuthProvider>()),
-        ListenableProvider<PlansProvider>(create: (_) => sl<PlansProvider>()),
-      ],
+      providers: Providers.list,
       child: MaterialApp(
         localizationsDelegates: const [
           S.delegate,
@@ -27,8 +22,7 @@ class App extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const AuthPage(),
-        //FF7A15
+        home: const SplashPage(),
          theme: ThemeData(
             primaryColor: const Color(0xffFF7A15),
             colorScheme: ThemeData()

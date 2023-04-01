@@ -6,7 +6,10 @@ import '../../auth/domain/repositories/auth_repository.dart';
 initRepository(GetIt sl) {
 
   sl.registerLazySingleton<AuthRepository>(
-    () => AuthRepositoryImpl(authDataSource: sl()),
+    () => AuthRepositoryImpl(
+      userLocalDataSource: sl(),
+      authDataSource: sl()
+    ),
   );
 
 }
