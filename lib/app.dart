@@ -1,10 +1,10 @@
-import 'package:cuy_test/feature/plans/presentation/pages/plnas_page.dart';
 import 'package:cuy_test/shared/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'di/injection_container.dart';
+import 'feature/auth/presentation/pages/auth_page.dart';
 import 'feature/auth/presentation/providers/auth_provider.dart';
 import 'feature/plans/presentation/providers/plans_provider.dart';
 import 'generated/l10n.dart';
@@ -27,8 +27,7 @@ class App extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        // home: const AuthPage(),
-        home: const PlansPage(),
+        home: const AuthPage(),
         //FF7A15
          theme: ThemeData(
             primaryColor: const Color(0xffFF7A15),

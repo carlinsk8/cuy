@@ -106,6 +106,7 @@ class _FormAuthState extends State<FormAuth> {
 
   TextFormField _buildPasswordTextField(BuildContext context) {
     return TextFormField(
+      obscureText: true,
       focusNode: _passwordFocus,
       onChanged: (value) => password = value.trim(),
       onSaved: (value) {
