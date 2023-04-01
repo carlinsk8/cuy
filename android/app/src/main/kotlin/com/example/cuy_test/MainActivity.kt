@@ -7,15 +7,15 @@ import java.util.*
 
 class MainActivity: FlutterActivity() {
 
-    private val CHANNEL = "samples.flutter.dev/battery"
+    private val CHANNEL = "samples.flutter.dev/info"
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
                 call, result ->
             // This method is invoked on the main thread.
-            if (call.method == "getBatteryLevel") {
-                val map = getBatteryLevel()
+            if (call.method == "getInfoDevice") {
+                val map = getInfoDevice()
                 result.success(map)
 
             } else {
@@ -24,7 +24,7 @@ class MainActivity: FlutterActivity() {
         }
     }
 
-    private fun getBatteryLevel(): HashMap<String, Any?> {
+    private fun getInfoDevice(): HashMap<String, Any?> {
         val map = hashMapOf<String, Any?>()
 
         val versionName = BuildConfig.VERSION_NAME

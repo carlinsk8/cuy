@@ -8,10 +8,10 @@ abstract class InfoDeviceLocalDatasource {
 }
 
 class InfoDeviceLocalDatasourceImpl extends InfoDeviceLocalDatasource {
-  static const platform = MethodChannel('samples.flutter.dev/battery');
+  static const platform = MethodChannel('samples.flutter.dev/info');
   @override
   Future<InfoDevice> getInfoDevice() async {
-    final Map<dynamic, dynamic> result = await platform.invokeMethod('getBatteryLevel');
+    final Map<dynamic, dynamic> result = await platform.invokeMethod('getInfoDevice');
     final data = InfoDeviceModel.fromJson(result);
     return data;
   }
