@@ -19,9 +19,6 @@ abstract class BaseDioClient {
     _instance = Dio();
 
     _instance.options.receiveDataWhenStatusError = true;
-    _instance.options.connectTimeout = 60 * 1000;
-    _instance.options.receiveTimeout = 60 * 1000;
-    _instance.options.sendTimeout = 60 * 1000;
 
     _instance.options.headers = {
       if (token.isNotEmpty) HttpHeaders.authorizationHeader: 'Cuy-oauthtoken $tokenChecked',

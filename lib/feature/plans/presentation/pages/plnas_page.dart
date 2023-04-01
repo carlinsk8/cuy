@@ -1,11 +1,27 @@
 
+import 'package:cuy_test/feature/auth/presentation/pages/auth_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../generated/l10n.dart';
+import '../providers/plans_provider.dart';
 import '../widgets/plan_list.dart';
 import 'info_device_page.dart';
-
-class PlansPage extends StatelessWidget {
+enum SortType {
+  asc,
+  desc
+}
+extension SortTypeExt on SortType {
+  String get value {
+    switch (this) {
+      case SortType.asc:
+        return 'ASC';
+      case SortType.desc:
+        return 'DESC';
+    }
+  }
+}
+class PlansPage extends StatefulWidget {
   static const id = 'plans_page';
 
   const PlansPage({super.key});
@@ -24,13 +40,48 @@ class PlansPage extends StatelessWidget {
   }
 
   @override
+  State<PlansPage> createState() => _PlansPageState();
+}
+
+class _PlansPageState extends State<PlansPage> {
+  int? selectedMenu;
+  String sort = SortType.asc.name;
+
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<PlansProvider>(context, listen: false);
+      
     return Scaffold(
+      appBar: AppBar(
+        title: Text(S.of(context).planList),
+        actions: [
+          _logout(context)
+        ],
+      ),
       body: Column(
         children: [
-          _buildTitle(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+               Text('${S.of(context).sort}:'),
+              const SizedBox(width: 10),
+              Text(SortType.asc.name),
+              Radio<String>(value: SortType.asc.name, groupValue: sort, onChanged: (v) async {
+                await provider.getList(v??SortType.asc.name);
+                setState(() {
+                  sort=v??SortType.asc.name;
+                });
+              }),
+              Text(SortType.desc.name),
+              Radio<String>(value: SortType.desc.name, groupValue: sort, onChanged: (v) async {
+                await provider.getList(v??SortType.asc.name);
+                setState(() {
+                  sort=v??SortType.asc.name;
+                });
+              })
+            ],
+          ),
           const PlanList(),
-
           _buildSendBottom(context)
           
         ],
@@ -38,14 +89,34 @@ class PlansPage extends StatelessWidget {
    );
   }
 
-  Widget _buildTitle(BuildContext context) {
-    return  SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Center(
-          child: Text(S.of(context).planList, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+  PopupMenuButton<int> _logout(BuildContext context) {
+    return PopupMenuButton<int>(
+      icon: const Icon(Icons.more_vert, color: Colors.white,),
+      initialValue: selectedMenu,
+      onSelected: (int item) {
+        AuthPage.pushNavigate(context,replace: true);
+      },
+      offset: const Offset(-5,0),
+      shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+          Radius.circular(10.0),
         ),
       ),
+
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<int>>[
+        PopupMenuItem<int>(
+          height: 35,
+          value: 1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children:   [
+              const Icon(Icons.logout,color: Colors.black,),
+              Text(S.of(context).logout),
+            ],
+          ),
+        ),
+      
+      ],
     );
   }
 
@@ -64,9 +135,9 @@ class PlansPage extends StatelessWidget {
         onPressed: () async {
           InfoDevicePage.pushNavigate(context);
         },
-        child: const Text(
-          'Obtener info del dispositivo',
-          style: TextStyle(color: Colors.white),
+        child: Text(
+          S.of(context).titleInfoDevice,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

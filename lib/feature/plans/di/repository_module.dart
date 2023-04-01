@@ -6,7 +6,10 @@ import '../domain/repositories/plan_repository.dart';
 initRepository(GetIt sl) {
 
   sl.registerLazySingleton<PlansRepository>(
-    () => PlansRepositoryImpl(plansDataSource: sl()),
+    () => PlansRepositoryImpl(
+      infoDeviceLocalDatasource: sl(),
+      plansDataSource: sl()
+    ),
   );
 
 }

@@ -9,5 +9,15 @@
   "unexpectedErrorMessage": "An unexpected error occurred.",
   "invaliEmailMessage": "Please enter a valid email.",
   "requiredField": "Required field",
-  "planList": "Plan List"
+  "planList": "Plan List",
+  "logout": "Log out",
+  "titleInfoDevice": "Get device info",
+  "sort": "Sort",
+  "infoDevice": "Device data",
+  "appName": "App Name",
+  "appID": "App ID",
+  "versionApp": "Application version",
+  "brandModel": "Brand/Model",
+  "os": "Operating system",
+  "lang": "Language"
 }

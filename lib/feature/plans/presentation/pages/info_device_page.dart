@@ -1,5 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../generated/l10n.dart';
+import '../providers/plans_provider.dart';
 
 class InfoDevicePage extends StatefulWidget {
   const InfoDevicePage({super.key});
@@ -25,22 +29,49 @@ class InfoDevicePage extends StatefulWidget {
 
 class _InfoDevicePageState extends State<InfoDevicePage> {
 
-  static const platform = MethodChannel('flutter/getinfo');
-
-  void getinfo() async {
-    try {
-      final result = await  platform.invokeMethod('info',<String, Object?>{});
-    } on PlatformException catch (e) {
-      print('Exception: $e');
-    }
+  PlansProvider? provider;
+  Map? info;
+  @override
+  void initState() {
+    super.initState();
+    
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      provider = Provider.of<PlansProvider>(context, listen: false);
+      await provider?.getInfoDevice();
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Hola Mundo'),
-     ),
+  
+    return  Scaffold(
+      appBar: AppBar(
+        title:  Text(S.of(context).infoDevice),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            _itemRow('${S.of(context).appName}: ',provider?.infoDevice?.appName ?? ''),
+            _itemRow('${S.of(context).appID}: ', provider?.infoDevice?.appId ?? ''),
+            _itemRow('${S.of(context).versionApp}: ', provider?.infoDevice?.versionName ?? ''),
+            _itemRow('${S.of(context).brandModel}: ','${provider?.infoDevice?.brand ?? ''}/${provider?.infoDevice?.model ?? ''}'),
+            _itemRow('${S.of(context).os}: ', provider?.infoDevice?.android ?? ''),
+            _itemRow('${S.of(context).lang}: ',provider?.infoDevice?.locale ?? ''),
+          ],
+        ),
+      ),
    );
+  }
+
+  Row _itemRow(String key, String value) {
+    return Row(
+      children: [
+        Text(key,style: const TextStyle(fontWeight: FontWeight.w500)),
+        Text(value),
+      ],
+    );
   }
 }

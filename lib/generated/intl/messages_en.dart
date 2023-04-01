@@ -28,11 +28,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "invaliEmailMessage":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email."),
+        "logout": MessageLookupByLibrary.simpleMessage("Log out"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
         "planList": MessageLookupByLibrary.simpleMessage("Plan List"),
         "requiredField": MessageLookupByLibrary.simpleMessage("Required field"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "sort": MessageLookupByLibrary.simpleMessage("Sort"),
+        "titleInfoDevice":
+            MessageLookupByLibrary.simpleMessage("Get device info"),
         "unexpectedErrorMessage": MessageLookupByLibrary.simpleMessage(
             "An unexpected error occurred."),
         "welcomeTo": MessageLookupByLibrary.simpleMessage("Welcome to")

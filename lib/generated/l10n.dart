@@ -159,6 +159,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Cerrar sesión`
+  String get logout {
+    return Intl.message(
+      'Cerrar sesión',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Obtener info del dispositivo`
+  String get titleInfoDevice {
+    return Intl.message(
+      'Obtener info del dispositivo',
+      name: 'titleInfoDevice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ordenar`
+  String get sort {
+    return Intl.message(
+      'Ordenar',
+      name: 'sort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Datos del dispositivo`
+  String get infoDevice {
+    return Intl.message(
+      'Datos del dispositivo',
+      name: 'infoDevice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nombre del aplicación`
+  String get appName {
+    return Intl.message(
+      'Nombre del aplicación',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID del aplicación`
+  String get appID {
+    return Intl.message(
+      'ID del aplicación',
+      name: 'appID',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Versión de la aplicación`
+  String get versionApp {
+    return Intl.message(
+      'Versión de la aplicación',
+      name: 'versionApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Marca/Modelo`
+  String get brandModel {
+    return Intl.message(
+      'Marca/Modelo',
+      name: 'brandModel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sistema operativo`
+  String get os {
+    return Intl.message(
+      'Sistema operativo',
+      name: 'os',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Idioma`
+  String get lang {
+    return Intl.message(
+      'Idioma',
+      name: 'lang',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

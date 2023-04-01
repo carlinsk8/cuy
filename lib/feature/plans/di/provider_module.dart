@@ -5,7 +5,8 @@ import '../presentation/providers/plans_provider.dart';
 initProvider(GetIt sl) {
   sl.registerFactory(
     () => PlansProvider(
-      getPlanListUseCase: sl()
+      getPlanListUseCase: sl(),
+      getInfoDevicetUseCase: sl(),
     ),
   );
   

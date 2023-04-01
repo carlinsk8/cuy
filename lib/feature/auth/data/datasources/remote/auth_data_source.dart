@@ -27,7 +27,7 @@ class AuthDataSourceImpl extends AuthDataSource {
       'password': password
     });
 
-    final response = await publicHttpClient.post('$baseApiUrl/auth',
+    final response = await publicHttpClient.post('$baseApiUrl/api/v1/auth',
         body: payload);
 
     final body = ResponseModel.fromJson(response.data);

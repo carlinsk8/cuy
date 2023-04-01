@@ -22,19 +22,33 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appID": MessageLookupByLibrary.simpleMessage("ID del aplicación"),
+        "appName":
+            MessageLookupByLibrary.simpleMessage("Nombre del aplicación"),
         "authtentication":
             MessageLookupByLibrary.simpleMessage("Autenticación"),
+        "brandModel": MessageLookupByLibrary.simpleMessage("Marca/Modelo"),
         "email": MessageLookupByLibrary.simpleMessage("Correo"),
         "hello": MessageLookupByLibrary.simpleMessage("Hola"),
+        "infoDevice":
+            MessageLookupByLibrary.simpleMessage("Datos del dispositivo"),
         "invaliEmailMessage":
             MessageLookupByLibrary.simpleMessage("Introduzca un email válido"),
+        "lang": MessageLookupByLibrary.simpleMessage("Idioma"),
+        "logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "os": MessageLookupByLibrary.simpleMessage("Sistema operativo"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "planList": MessageLookupByLibrary.simpleMessage("Lista de planes"),
         "requiredField": MessageLookupByLibrary.simpleMessage("Requerido"),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "sort": MessageLookupByLibrary.simpleMessage("Ordenar"),
+        "titleInfoDevice": MessageLookupByLibrary.simpleMessage(
+            "Obtener info del dispositivo"),
         "unexpectedErrorMessage":
             MessageLookupByLibrary.simpleMessage("Ocurrió un error inesperado"),
+        "versionApp":
+            MessageLookupByLibrary.simpleMessage("Versión de la aplicación"),
         "welcomeTo": MessageLookupByLibrary.simpleMessage("Bienvenidos a")
       };
 }

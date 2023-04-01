@@ -9,5 +9,15 @@
   "unexpectedErrorMessage": "Ocurrió un error inesperado",
   "invaliEmailMessage": "Introduzca un email válido",
   "requiredField": "Requerido",
-  "planList": "Lista de planes"
+  "planList": "Lista de planes",
+  "logout": "Cerrar sesión",
+  "titleInfoDevice": "Obtener info del dispositivo",
+  "sort": "Ordenar",
+  "infoDevice": "Datos del dispositivo",
+  "appName": "Nombre del aplicación",
+  "appID": "ID del aplicación",
+  "versionApp": "Versión de la aplicación",
+  "brandModel": "Marca/Modelo",
+  "os": "Sistema operativo",
+  "lang": "Idioma"
 }

@@ -1,0 +1,4 @@
+flutter_icons:
+  android: "ic_launcher"
+  remove_alpha_ios: true
+  image_path: "res/images/ico-cuy.png"
