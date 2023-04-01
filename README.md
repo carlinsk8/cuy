@@ -1,8 +1,8 @@
 # CUY
 </br>
-<img src="res/images/images/1.jpg" width="400">
-<img src="res/images/images/2.jpg" width="400">
-<img src="res/images/images/3.jpg" width="400">
+<img src="res/images/1.jpg" width="400">
+<img src="res/images/2.jpg" width="400">
+<img src="res/images/3.jpg" width="400">
 </br>
 This project is make in Flutter(Dart language) under the architecture **Clean Architecture**.
 
@@ -11,7 +11,7 @@ This project is make in Flutter(Dart language) under the architecture **Clean Ar
 
 ## Architecture diagram
 </br>
-<img src="doc/images/clean-architecture-flutter-fiagram.png" width="400">
+<img src="res/images/clean-architecture-flutter-fiagram.png" width="400">
 
 ## Project Organization
 
@@ -19,7 +19,7 @@ This project is make in Flutter(Dart language) under the architecture **Clean Ar
 
 This is the stuff you're used to from "unclean" Flutter architecture. You obviously need widgets to display something on the screen. These widgets then dispatch events to the Bloc and listen for states (or an equivalent if you don't use Bloc for state management).
 
-![presentation diagram](doc/images/presentation-layer-diagram.png)
+![presentation diagram](res/images/presentation-layer-diagram.png)
 
 > Note that the "Presentation Logic Holder" (e.g. Bloc or Provider) doesn't do much by itself. It delegates all its work to use cases. At most, the presentation layer handles basic input conversion and validation.
 
@@ -31,7 +31,7 @@ Domain is the inner layer which shouldn't be susceptible to the whims of changin
 
 But... How is the domain layer completely independent when it gets data from a Repository, which is from the data layer?  Do you see that fancy colorful gradient for the Repository? That signifies that it belongs to both layers at the same time. We can accomplish this with dependency inversion.
 
-![domain diagram](doc/images/domain-layer-diagram.png)
+![domain diagram](res/images/domain-layer-diagram.png)
 
 That's just a fancy way of saying that we create an abstract Repository class defining a contract of what the Repository must do - this goes into the domain layer. We then depend on the Repository "contract" defined in domain, knowing that the actual implementation of the Repository in the data layer will fullfill this contract.
 
@@ -43,7 +43,7 @@ The data layer consists of a Repository implementation (the contract comes from 
 
 You may notice that data sources don't return Entities but rather Models. The reason behind this is that transforming raw data (e.g JSON) into Dart objects requires some JSON conversion code. We don't want this JSON-specific code inside the domain Entities - what if we decide to switch to XML?
 
-![data diagram](doc/images/data-layer-diagram.png)
+![data diagram](res/images/data-layer-diagram.png)
 
 Therefore, we create Model classes which extend Entities and add some specific functionality (toJson, fromJson) or additional fields, like database ID, for example.
 
