@@ -7,7 +7,7 @@
 This project is make in Flutter(Dart language) under the architecture **Clean Architecture**.
 
 >It's architecture based on the book and blog by Uncle Bob. It is a combination of concepts taken from the Onion Architecture and other architectures. The main focus of the architecture is separation of concerns and scalability. It consists of four main modules: core, data, domain, and presentation.
-><img src="doc/images/clean_architecture.jpg" width="400">
+><img src="res/images/clean_architecture.jpg" width="400">
 
 ## Architecture diagram
 </br>
