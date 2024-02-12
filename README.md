@@ -50,6 +50,8 @@ Therefore, we create Model classes which extend Entities and add some specific f
 The RemoteDataSource will perform HTTP GET requests on the API. LocalDataSource will simply cache data using the shared_preferences package.
 </br>
 
+[test](https://github.com/carlinsk8/cuy/edit/master/README.md)
+
 # Getting Started
 
     - Proyect in Flutter 3.7.9
